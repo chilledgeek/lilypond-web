@@ -5,10 +5,13 @@ USER root
 
 WORKDIR /
 
-RUN mkdir /workdir
+COPY . /
+
+RUN mkdir -p /workdir
 RUN chmod -R 777 /workdir
 
 RUN apt-get update && apt-get install bzip2
+RUN rm -rf /var/lib/apt/lists/*
 
 ADD http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh ./
 
@@ -17,10 +20,11 @@ RUN ./lilypond-2.18.2-1.linux-64.sh --batch --prefix /lilypond
 
 RUN rm -rf lilypond-2.18.2-1.linux-64.sh
 
-RUN echo "{" >> /test.ly
-RUN echo "\\\version \"2.18.2\"" >> /test.ly
-RUN echo "\\\time 2/4" >> /test.ly
-RUN echo "\\\clef bass" >> /test.ly
-RUN echo "c4 c g g a a g2" >> /test.ly
-RUN echo "}" >> /test.ly
+RUN pip install -r requirements.txt
+
+USER 1001
+
+EXPOSE 8080
+
+ENTRYPOINT ["python", "run.py"]
 

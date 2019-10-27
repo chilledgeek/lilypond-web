@@ -1,4 +1,33 @@
+<html>
+<!doctype html>
+
+<head>
+<title>Lilypond Music Score Generator</title>
+</head>
+
+<h1><a href = "http://lilypond.org/">Lilypond</a> Music Score Generator</h1>
+
+<section>
+
+    <p>
+        Input your <a href = "http://lilypond.org/">lilypond</a> code below and click submit to generate your music score
+    </p>
+    <p>
+        Here is the simple <a href = "https://github.com/chilledgeek/alpine-lilypond">github code used to generate this service</a>
+    </p>
+
 <form method="POST">
-    <input name="lilypond_text">
+        <textarea id="txt_comments"
+                  title="Input your lilypond code here"
+                  name="lilypond_text"
+                  rows="30"
+                  cols="100"
+                  maxlength="9999999"
+        >
+        </textarea>
+
     <input type="submit">
 </form>
+
+</section>
+</html>
