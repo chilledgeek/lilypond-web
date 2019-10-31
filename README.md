@@ -4,7 +4,8 @@
 | CircleCI |  [![CircleCI](https://circleci.com/gh/chilledgeek/lilypond-web.svg?style=svg)](https://circleci.com/gh/chilledgeek/lilypond-web)|
 
 # Lilypond Web Service
-- Lightweight service that runs Lilypond
+- Lightweight service that runs simple webpage to access Lilypond functionalities
+- Based on docker image base [chilledgeek/lilypond-docker](https://hub.docker.com/r/chilledgeek/lilypond-docker)
 
 # How to use
 - Ensure docker is installed and available (locally or on server that will host this, etc, kubernetes cluster)
