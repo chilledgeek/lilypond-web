@@ -1,4 +1,4 @@
-FROM chilledgeek/lilypond-docker
+FROM chilledgeek/lilypond-docker:latest
 LABEL maintainer="chilledgeek@gmail.com"
 
 USER root

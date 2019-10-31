@@ -7,7 +7,7 @@ jobs:
     steps:
       - run:
           name: Install ssh and git
-          command: apt install git-all openssh-server -y
+          command: sudo apt install git-all openssh-server -y
       - checkout
       - run:
           name: Install requirements
