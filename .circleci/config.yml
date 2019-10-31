@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install requirements
-          command: pip install -r requirements.txt
+          command: pip install --user -r requirements.txt
 
   test:
     docker:
