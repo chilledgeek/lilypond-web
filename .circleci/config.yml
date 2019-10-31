@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Set up workdir
-          command: mkdir -p /workdir && chmod -R 777 /workdir
+          command: sudo mkdir -p /workdir && chmod -R 777 /workdir
 
       - run:
           name: Install bzip2
