@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: /workdir
     docker:
       - image: circleci/python:3.8.0-buster
       - image: chilledgeek/lilypond-docker:latest
