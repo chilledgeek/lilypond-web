@@ -10,11 +10,15 @@ jobs:
           command: sudo mkdir -p /workdir && sudo chmod -R 777 /workdir
 
       - run:
+          name: wget lilypond
+          command: sudo wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh
+      - run:
+          name: chmod lilypond sh
+          command: sudo chmod +x lilypond-2.18.2-1.linux-64.sh
+
+      - run:
           name: Install lilypond
-          command: wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh \
-            && sudo chmod +x lilypond-2.18.2-1.linux-64.sh \
-            && sudo ./lilypond-2.18.2-1.linux-64.sh --batch --prefix /lilypond\
-            && sudo rm -rf lilypond-2.18.2-1.linux-64.sh
+          command: sudo ./lilypond-2.18.2-1.linux-64.sh --batch --prefix /lilypond
 
       - run:
           name: Install requirements
