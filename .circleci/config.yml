@@ -3,17 +3,31 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.8.0-buster
-      - image: chilledgeek/lilypond-docker:latest
     steps:
       - checkout
       - run:
+          name: Set up workdir
+          command: mkdir -p /workdir && chmod -R 777 /workdir
+
+      - run:
+          name: Install bzip2
+          command: sudo apt-get update && sudo apt-get install -y --no-install-recommends bzip2 \
+            && sudo apt-get clean \
+            && sudo rm -rf /var/lib/apt/lists/*
+      - run:
+          name: Install lilypond
+          command: wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh \
+            && sudo chmod +x lilypond-2.18.2-1.linux-64.sh \
+            && ./lilypond-2.18.2-1.linux-64.sh --batch --prefix /lilypond\
+            && rm -rf lilypond-2.18.2-1.linux-64.sh
+
+      - run:
           name: Install requirements
-          command: pip install --user -r requirements.txt
+          command: sudo pip install -r requirements.txt
 
   test:
     docker:
       - image: circleci/python:3.8.0-buster
-      - image: chilledgeek/lilypond-docker
     steps:
       - checkout
       - run:
