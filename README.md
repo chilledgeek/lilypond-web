@@ -1,12 +1,22 @@
+| Code quality checks  | Status |
+| ------------- |:-------------:|
+| CodeFactor      |  [![Codefactor](https://www.codefactor.io/repository/github/chilledgeek/lilypond-web/badge?style=plastic)](https://www.codefactor.io/repository/github/chilledgeek/lilypond-web) |
+| CircleCI |  [![CircleCI](https://circleci.com/gh/chilledgeek/lilypond-web.svg?style=svg)](https://circleci.com/gh/chilledgeek/lilypond-web)|
+
 # Lilypond Web Service
 - Lightweight service that runs Lilypond
 
 # How to use
-- Access a service instance of this code, e.g. [this website](https://www.music_scores.chilledgeek.com) 
-(or your own instance)
+- Ensure docker is installed and available (locally or on server that will host this, etc, kubernetes cluster)
+- Pull docker image: ```docker pull chilledgeek/lilypond-web```
+- To run locally:
+  - Run service: ```sudo docker run chilledgeek/lilypond-web --network="host"```
+  - Find the port:
+    - ```docker container ps``` (get the NAME of running container (e.g. 3278cbd341f0)
+    - ```docker container inspect 3278cbd341f0 | grep IPAddress```
+  - Access the IPAddress using any browser
+
 - Paste in some Lilypond code, e.g. here is 
-[a sample lilypond code](https://github.com/chilledgeek/repo/lilypond-svc/test/common/harry_potter_intro.ly) 
+[a sample lilypond code](https://github.com/chilledgeek/lilypond-web/blob/master/test/common/harry_potter_intro.ly) 
 to generate the score for the intro part of Harry Potter's theme song
-
-
 

@@ -1,0 +1,47 @@
+version: 2
+jobs:
+  build:
+    working_directory: /workdir
+    docker:
+      - image: python:3.8.0-slim-buster
+    steps:
+      - checkout
+      - run:
+          name: Set up workdir
+          command: mkdir -p /workdir && chmod -R 777 /workdir
+
+      - run:
+          name: Install bzip2
+          command: sudo apt-get update && sudo apt-get install -y --no-install-recommends bzip2 \
+            && sudo apt-get clean \
+            && sudo rm -rf /var/lib/apt/lists/*
+      - run:
+          name: Install lilypond
+          command: wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh \
+            && sudo chmod +x lilypond-2.18.2-1.linux-64.sh \
+            && ./lilypond-2.18.2-1.linux-64.sh --batch --prefix /lilypond\
+            && rm -rf lilypond-2.18.2-1.linux-64.sh
+      - run:
+          name: Install requirements
+          command: pip install -r requirements.txt
+
+  test:
+    docker:
+      - image: python:3.8.0-slim-buster
+    steps:
+      - checkout
+      - run:
+          name: Test
+          command: python -m unittest
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
