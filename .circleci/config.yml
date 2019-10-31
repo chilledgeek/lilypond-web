@@ -3,11 +3,9 @@ jobs:
   build:
     working_directory: /workdir
     docker:
-      - image: chilledgeek/lilypond-docker
+      - image: circleci/python:3.8.0-buster
+      - image: chilledgeek/lilypond-docker:latest
     steps:
-      - run:
-          name: Install ssh and git
-          command: sudo apt install git-all openssh-server -y
       - checkout
       - run:
           name: Install requirements
@@ -15,6 +13,7 @@ jobs:
 
   test:
     docker:
+      - image: circleci/python:3.8.0-buster
       - image: chilledgeek/lilypond-docker
     steps:
       - checkout
