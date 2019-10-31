@@ -5,11 +5,10 @@ jobs:
     docker:
       - image: chilledgeek/lilypond-docker
     steps:
-      - checkout
       - run:
-          name: Set up workdir
-          command: mkdir -p /workdir && chmod -R 777 /workdir
-
+          name: Install ssh and git
+          command: apt install git-all openssh-server -y
+      - checkout
       - run:
           name: Install requirements
           command: pip install -r requirements.txt

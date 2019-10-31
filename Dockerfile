@@ -7,9 +7,6 @@ WORKDIR /
 
 COPY . /
 
-RUN mkdir -p /workdir
-RUN chmod -R 777 /workdir
-
 RUN pip install -r requirements.txt
 
 USER 1001
