@@ -2,6 +2,7 @@
 | ------------- |:-------------:|
 | CodeFactor      |  [![Codefactor](https://www.codefactor.io/repository/github/chilledgeek/lilypond-web/badge?style=plastic)](https://www.codefactor.io/repository/github/chilledgeek/lilypond-web) |
 | CircleCI |  [![CircleCI](https://circleci.com/gh/chilledgeek/lilypond-web.svg?style=svg)](https://circleci.com/gh/chilledgeek/lilypond-web)|
+| Codecov | [![codecov](https://codecov.io/gh/chilledgeek/lilypond-web/branch/master/graph/badge.svg)](https://codecov.io/gh/chilledgeek/lilypond-web)|
 
 # Lilypond Web Service
 - Lightweight service that runs simple webpage to access Lilypond functionalities
