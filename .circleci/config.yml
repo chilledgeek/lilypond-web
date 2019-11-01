@@ -32,6 +32,10 @@ jobs:
           name: Test
           command: coverage run -m unittest
 
+      - run:
+          name: Upload report
+          command: codecov
+
 workflows:
   version: 2
   build_and_test:
