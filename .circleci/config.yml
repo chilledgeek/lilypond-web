@@ -25,12 +25,12 @@ jobs:
           command: sudo pip install -r requirements.txt
 
       - run:
-          name: Install requirements
-          command: sudo pip install coverage
+          name: Install test and quality check packages
+          command: sudo pip install coverage codecov
 
       - run:
           name: Test
-          command: coverage -m unittest
+          command: coverage run -m unittest
 
 workflows:
   version: 2
