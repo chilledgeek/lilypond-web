@@ -4,7 +4,6 @@ LABEL maintainer="chilledgeek@gmail.com"
 USER root
 
 WORKDIR /
-
 COPY . /
 
 RUN pip install -r requirements.txt
