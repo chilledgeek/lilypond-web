@@ -7,6 +7,7 @@
 # Lilypond Web Service
 - Lightweight service that runs simple webpage to access Lilypond functionalities
 - Based on docker image base [chilledgeek/lilypond-docker](https://hub.docker.com/r/chilledgeek/lilypond-docker)
+- Source code is published on [github](https://www.github.com/chilledgeek/lilypond-web), while the corresponding docker image is published on [docker hub](https://hub.docker.com/r/chilledgeek/lilypond-web)
 - Default port is set to 8080
 
 # How to use
