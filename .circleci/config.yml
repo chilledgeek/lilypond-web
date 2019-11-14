@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Test
-          command: coverage run --omit=test_*.py -m unittest
+          command: coverage run --omit="*/test_*.py" -m unittest
 
       - run:
           name: Upload report
